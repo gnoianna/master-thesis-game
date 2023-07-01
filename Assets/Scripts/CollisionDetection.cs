@@ -6,7 +6,11 @@ public class CollisionDetection : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"Kolizja z: {other.gameObject.name}");
-        Destroy(gameObject);
+        if (other.gameObject.tag == gameObject.tag)
+        {
+            GameDataManager.Instance.IncreaseScore(1);
+            Destroy(gameObject);
+        }
+        Debug.Log($"GameObject: {other.gameObject.tag} and {gameObject.tag}");
     }
 }
