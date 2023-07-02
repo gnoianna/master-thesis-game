@@ -13,6 +13,21 @@ public class DataReceiver : MonoBehaviour
     public int port = 5052;
     public string data;
 
+    public static DataReceiver instance;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public void Start()
     {
 
@@ -39,6 +54,12 @@ public class DataReceiver : MonoBehaviour
                 print(err.ToString());
             }
         }
+    }
+
+    private void OnApplicationQuit()
+    {
+        client.Close();
+        receiveThread.Abort();
     }
 
 }

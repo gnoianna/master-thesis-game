@@ -5,13 +5,12 @@ using System.Globalization;
 
 public class PoseTracker : MonoBehaviour
 {
-    public DataReceiver dataReceiver;
     public GameObject[] bodyPoints;
     public Transform head;
 
     void Update()
     {
-        string data = dataReceiver.data;
+        string data = DataReceiver.instance.data;
         data = data.Remove(0, 1);
         data = data.Remove(data.Length - 1, 1);
         string[] points = data.Split(",");
