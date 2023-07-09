@@ -62,10 +62,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1658271282638229902, guid: cdb0ea1957bc61d408c64acf02b629dc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6f9cb9c329c9944487e340e11345213, type: 2}
     - target: {fileID: 8191297137435294188, guid: cdb0ea1957bc61d408c64acf02b629dc,
         type: 3}
       propertyPath: m_Name
-      value: PointController Variant
+      value: PointController with Collider Type1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdb0ea1957bc61d408c64acf02b629dc, type: 3}

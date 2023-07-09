@@ -10,7 +10,7 @@ public class CollisionDetector : MonoBehaviour
         if (body.gameObject.tag == gameObject.tag)
         {
             GameDataManager.Instance.IncreaseScore(1);
-            AudioManager.instance.PlayCollisionSound();
+            MusicManager.Instance.PlayCollisionSound();
             Destroy(gameObject);
         }
     }

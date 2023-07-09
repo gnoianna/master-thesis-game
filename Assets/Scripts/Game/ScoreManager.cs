@@ -11,7 +11,7 @@ public class ScoreManager : MonoBehaviour
     {
         if (scoreText)
         {
-            scoreText.text = "Score: " + GameDataManager.Instance.Score;
+            scoreText.text = "" + GameDataManager.Instance.Score;
         }
         
     }
