@@ -4,12 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class GameDataManager : MonoBehaviour
+public class MainGameManager : MonoBehaviour
 {
-    public static GameDataManager Instance;
+    public static MainGameManager Instance;
 
     public float ObstacleSpeed { get; private set; }
     public int Score { get; private set; }
+    public float GameTime { get; private set; }
+    public bool GameRunning { get; private set; }
+    public bool GamePaused { get; private set; }
 
     public AudioClip startAudioClip;
     public AudioClip easyAudioClip;
@@ -28,6 +31,42 @@ public class GameDataManager : MonoBehaviour
             Destroy(gameObject);
         }
         MusicManager.Instance.UpdateMusic(startAudioClip);
+        SetObstacleSpeed(2.0f);
+    }
+
+    private void Update()
+    {
+        if (GameRunning && !GamePaused)
+        {
+            GameTime -= Time.deltaTime;
+            if (GameTime <= 0)
+            {
+                EndGame();
+            }
+        }
+    }
+
+    private void StartGame()
+    {
+        Score = 0;
+        GameTime = 20f;
+        GameRunning = true;
+        GamePaused = false;
+    }
+
+    public void PauseGame()
+    {
+        GamePaused = true;
+    }
+
+    public void ResumeGame()
+    {
+        GamePaused = false;
+    }
+
+    private void EndGame()
+    {
+        GameRunning = false;
     }
 
     public void SetObstacleSpeed(float newSpeed)
@@ -42,29 +81,29 @@ public class GameDataManager : MonoBehaviour
 
     public void QuitMode()
     {
-        Score = 0;
+        EndGame();
         MusicManager.Instance.UpdateMusic(startAudioClip);
         SceneManager.LoadScene("StartScene");
     }
 
     public void LoadEasyMode()
     {
-        SetObstacleSpeed(2.0f);
         MusicManager.Instance.UpdateMusic(easyAudioClip);
         SceneManager.LoadScene("MainScene");
+        StartGame();
     }
 
     public void LoadMediumMode()
     {
-        SetObstacleSpeed(5.0f);
         MusicManager.Instance.UpdateMusic(mediumAudioClip);
         SceneManager.LoadScene("MainScene");
+        StartGame();
     }
 
     public void LoadHardMode()
     {
-        SetObstacleSpeed(7.0f);
         MusicManager.Instance.UpdateMusic(hardAudioClip);
         SceneManager.LoadScene("MainScene");
+        StartGame();
     }
 }

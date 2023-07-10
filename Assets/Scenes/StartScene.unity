@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 141221923}
   - component: {fileID: 141221924}
   m_Layer: 0
-  m_Name: DATA RECEIVER
+  m_Name: Data
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -425,7 +425,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &141221924
 MonoBehaviour:
@@ -621,7 +621,7 @@ GameObject:
   - component: {fileID: 249832287}
   - component: {fileID: 249832288}
   m_Layer: 0
-  m_Name: UI
+  m_Name: Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1213,7 +1213,7 @@ GameObject:
   - component: {fileID: 417377382}
   - component: {fileID: 417377384}
   m_Layer: 0
-  m_Name: MUSIC
+  m_Name: Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1234,7 +1234,7 @@ Transform:
   - {fileID: 1136875025}
   - {fileID: 1981130151}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &417377384
 MonoBehaviour:
@@ -2324,7 +2324,7 @@ PrefabInstance:
     - target: {fileID: 2604460164366697996, guid: ec581c946b535be428a670cbfca431fe,
         type: 3}
       propertyPath: m_Name
-      value: PLAYER
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec581c946b535be428a670cbfca431fe, type: 3}
@@ -2594,7 +2594,7 @@ GameObject:
   - component: {fileID: 1463565049}
   - component: {fileID: 1463565050}
   m_Layer: 0
-  m_Name: GAME DATA
+  m_Name: Game Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2613,7 +2613,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1463565050
 MonoBehaviour:
@@ -2812,7 +2812,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1491929143}
   m_Layer: 0
-  m_Name: ENVIRONMENT
+  m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2834,7 +2834,7 @@ Transform:
   - {fileID: 610046525}
   - {fileID: 12159009}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1544597652
 GameObject:

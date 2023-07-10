@@ -7,7 +7,7 @@ public class Obstacle : MonoBehaviour
 
     void Update()
     {
-        transform.position += Time.deltaTime * transform.forward * GameDataManager.Instance.ObstacleSpeed;
+        transform.position += Time.deltaTime * transform.forward * MainGameManager.Instance.ObstacleSpeed;
 
         if (transform.position.z < -5.0f) 
         {

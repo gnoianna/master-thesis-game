@@ -22,7 +22,7 @@ public class GameMenuManager : MonoBehaviour
 
     public void OnQuitButtonClick()
     {
-        GameDataManager.Instance.QuitMode();
+        MainGameManager.Instance.QuitMode();
     }
 
     public void OnResumeButtonClick()
