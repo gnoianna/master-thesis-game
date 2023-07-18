@@ -383,6 +383,7 @@ MonoBehaviour:
   statsPanel: {fileID: 593672735}
   warningPanel: {fileID: 116289929}
   spawner: {fileID: 4224470194754134121}
+  poseTracker: {fileID: 2604460162794748408}
   showButton:
     m_UseReference: 1
     m_Action:
@@ -4609,7 +4610,7 @@ PrefabInstance:
     - target: {fileID: 2604460164151496504, guid: ec581c946b535be428a670cbfca431fe,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2604460164366697995, guid: ec581c946b535be428a670cbfca431fe,
         type: 3}
@@ -4671,6 +4672,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5279568710571598895, guid: ec581c946b535be428a670cbfca431fe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6793564825706605541, guid: ec581c946b535be428a670cbfca431fe,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -4688,6 +4694,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: f6f9cb9c329c9944487e340e11345213, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec581c946b535be428a670cbfca431fe, type: 3}
+--- !u!1 &2604460162794748408 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2604460164151496504, guid: ec581c946b535be428a670cbfca431fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 2604460162794748407}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4224470194629636752
 GameObject:
   m_ObjectHideFlags: 0

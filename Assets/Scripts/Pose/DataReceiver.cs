@@ -11,15 +11,15 @@ public class DataReceiver : MonoBehaviour
     Thread receiveThread;
     UdpClient client; 
     public int port = 5052;
-    public string data;
+    public string Data;
 
-    public static DataReceiver instance;
+    public static DataReceiver Instance;
 
     void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -47,13 +47,19 @@ public class DataReceiver : MonoBehaviour
             {
                 IPEndPoint anyIP = new IPEndPoint(IPAddress.Any, 0);
                 byte[] dataByte = client.Receive(ref anyIP);
-                data = Encoding.UTF8.GetString(dataByte);
+                Data = Encoding.UTF8.GetString(dataByte);
             }
             catch (Exception err)
             {
                 print(err.ToString());
             }
         }
+    }
+
+    public bool DataIsEmpty()
+    {
+        return Data == "[]";
+      
     }
 
     private void OnApplicationQuit()

@@ -12,6 +12,7 @@ public class ModeGameManager : MonoBehaviour
     public GameObject statsPanel;
     public GameObject warningPanel;
     public GameObject spawner;
+    public GameObject poseTracker;
 
     public InputActionProperty showButton;
 
@@ -28,7 +29,17 @@ public class ModeGameManager : MonoBehaviour
         {
             EndGame();
         }
-        // TO-DO Add Data Receiver empty list handler
+        if (DataReceiver.Instance.DataIsEmpty())
+        {
+            poseTracker.SetActive(false);
+            warningPanel.SetActive(true);
+        }
+        else
+        {
+            poseTracker.SetActive(true);
+            warningPanel.SetActive(false);
+        }
+            
     }
 
     void Start()
@@ -37,6 +48,7 @@ public class ModeGameManager : MonoBehaviour
         statsPanel.SetActive(true);
         gameMenu.SetActive(false);
         gameEndPanel.SetActive(false);
+        warningPanel.SetActive(false);
     }
 
     private void EndGame()
@@ -81,4 +93,5 @@ public class ModeGameManager : MonoBehaviour
         gameMenu.SetActive(!gameMenu.activeSelf);
         spawner.SetActive(!spawner.activeSelf);
     }
+
 }

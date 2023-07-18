@@ -10,7 +10,7 @@ public class PoseTracker : MonoBehaviour
 
     void Update()
     {
-        string data = DataReceiver.instance.data;
+        string data = DataReceiver.Instance.Data;
         data = data.Remove(0, 1);
         data = data.Remove(data.Length - 1, 1);
         string[] points = data.Split(",");
