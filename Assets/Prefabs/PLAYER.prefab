@@ -2520,7 +2520,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.1
+    widthMultiplier: 0.05
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -2585,8 +2585,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96166c5f95511f646bdadf7cf0cb6b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  origin: {fileID: 6535069557232608536}
-  destination: {fileID: 6535069556258374115}
+  lineRenderer: {fileID: 9014757268230194325}
+  from: {fileID: 6535069557232608536}
+  to: {fileID: 6535069556258374115}
 --- !u!1 &5005859748641045532
 GameObject:
   m_ObjectHideFlags: 0
@@ -2672,7 +2673,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.5
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -2731,8 +2732,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96166c5f95511f646bdadf7cf0cb6b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  origin: {fileID: 6535069557347613982}
-  destination: {fileID: 6535069556511623436}
+  lineRenderer: {fileID: 9014757269064955646}
+  from: {fileID: 6535069557347613982}
+  to: {fileID: 6535069556511623436}
 --- !u!1 &5005859749072123109
 GameObject:
   m_ObjectHideFlags: 0
@@ -2812,7 +2814,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.1
+    widthMultiplier: 0.05
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -2877,8 +2879,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96166c5f95511f646bdadf7cf0cb6b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  origin: {fileID: 6535069557347613982}
-  destination: {fileID: 6535069557232608536}
+  lineRenderer: {fileID: 9014757269435252231}
+  from: {fileID: 6535069557347613982}
+  to: {fileID: 6535069557232608536}
 --- !u!1 &5005859749217161690
 GameObject:
   m_ObjectHideFlags: 0
@@ -2958,7 +2961,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.1
+    widthMultiplier: 0.05
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -3023,8 +3026,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96166c5f95511f646bdadf7cf0cb6b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  origin: {fileID: 6535069556511623436}
-  destination: {fileID: 6535069557474111016}
+  lineRenderer: {fileID: 9014757269557189432}
+  from: {fileID: 6535069556511623436}
+  to: {fileID: 6535069557474111016}
 --- !u!1 &5005859749277051063
 GameObject:
   m_ObjectHideFlags: 0
@@ -3104,7 +3108,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.1
+    widthMultiplier: 0.05
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -3169,8 +3173,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96166c5f95511f646bdadf7cf0cb6b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  origin: {fileID: 6535069557474111016}
-  destination: {fileID: 6535069557847797553}
+  lineRenderer: {fileID: 9014757269497569877}
+  from: {fileID: 6535069557474111016}
+  to: {fileID: 6535069557847797553}
 --- !u!1 &5279568710382145186
 GameObject:
   m_ObjectHideFlags: 0

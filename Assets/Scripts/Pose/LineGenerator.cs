@@ -4,21 +4,14 @@ using UnityEngine;
 
 public class LineGenerator : MonoBehaviour
 {
-    LineRenderer lineRenderer;
+    public LineRenderer lineRenderer;
 
-    public Transform origin;
-    public Transform destination;
-
-    void Start()
-    {
-        lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.startWidth = 0.05f;
-        lineRenderer.endWidth = 0.05f;
-    }
+    public Transform from;
+    public Transform to;
 
     void Update()
     {
-        lineRenderer.SetPosition(0, origin.position);
-        lineRenderer.SetPosition(1, destination.position);
+        lineRenderer.SetPosition(0, from.position);
+        lineRenderer.SetPosition(1, to.position);
     }
 }

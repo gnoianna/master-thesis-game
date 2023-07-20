@@ -16,7 +16,6 @@ public class ButtonHoverHandler : MonoBehaviour, IPointerEnterHandler, IPointerE
     public GameMode mode;
 
     private string originalText = "Choose your option!\n\n<b>Hover over the button and see mode description</b>";
-
     private string easyModeText = "Easy mode here";
     private string mediumModeText = "Medium mode here";
     private string hardModeText = "Hard mode here";

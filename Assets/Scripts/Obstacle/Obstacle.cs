@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-
     void Update()
     {
-        transform.position += Time.deltaTime * transform.forward * MainGameManager.Instance.ObstacleSpeed;
+        transform.position += Time.deltaTime * transform.forward * GameModeManager.Instance.obstacleSpeed;
 
         if (transform.position.z < -5.0f) 
         {

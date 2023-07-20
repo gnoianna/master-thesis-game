@@ -7,44 +7,49 @@ public class PoseTracker : MonoBehaviour
 {
     public GameObject[] bodyPoints;
     public Transform head;
+    private Transform[] bodyPointTransforms;
+    private float smoothingFactor = 0.5f;
+
+    void Start()
+    {
+        bodyPointTransforms = new Transform[bodyPoints.Length];
+        for (int i = 0; i < bodyPoints.Length; i++)
+        {
+            bodyPointTransforms[i] = bodyPoints[i].transform;
+        }
+    }
 
     void Update()
     {
         string data = DataReceiver.Instance.Data;
-        data = data.Remove(0, 1);
-        data = data.Remove(data.Length - 1, 1);
-        string[] points = data.Split(",");
-        float step = 10.0f * Time.deltaTime;
+        ParsePointsData(data);
+    }
 
-        if (points.Length > 1)
+    void ParsePointsData(string data)
+    {
+        data = data.Trim(new char[] { '[', ']' });
+        string[] points = data.Split(',');
+
+        if (points.Length < 2)
+            return;
+
+        float leftEyeYPosition = float.Parse(points[1], CultureInfo.InvariantCulture);
+
+        float yOffset = Mathf.Abs(head.position.y - leftEyeYPosition);
+        float xOffset = head.position.x;
+
+        for (int i = 1; i < (points.Length / 2); i++)
         {
-            float leftEyeYPosition = float.Parse(points[1], CultureInfo.InvariantCulture);
-            float yOffset = Mathf.Abs(head.transform.position.y - leftEyeYPosition);
-            float xOffset = head.transform.position.x;
+            float x = float.Parse(points[i * 2], CultureInfo.InvariantCulture) + xOffset;
+            float y = float.Parse(points[i * 2 + 1], CultureInfo.InvariantCulture) + yOffset;
+            float z = head.position.z;
 
-            float zPosition = head.transform.position.z;
+            Vector3 targetPosition = new Vector3(x, y, z);
+            float distance = Vector3.Distance(bodyPointTransforms[i - 1].localPosition, targetPosition);
 
-            for (int i = 1; i < (points.Length / 3); i++)
-            {
-                float prevX = bodyPoints[i - 1].transform.localPosition.x;
-                float prevY = bodyPoints[i - 1].transform.localPosition.y;
-                float x = float.Parse(points[i * 3], CultureInfo.InvariantCulture) + xOffset;
-                float y = float.Parse(points[i * 3 + 1], CultureInfo.InvariantCulture) + yOffset;
-                float prevCurrXDifference = Mathf.Abs(prevX) - Mathf.Abs(x);
-                float prevCurrYDifference = Mathf.Abs(prevY) - Mathf.Abs(y);
 
-                if (prevCurrXDifference < 0.1f && prevCurrXDifference > 0.2f)
-                {
-                    x = prevX;
-                }
-                if (prevCurrYDifference < 0.1f && prevCurrYDifference > 0.2f)
-                {
-                    y = prevY;
-                }
-                bodyPoints[i - 1].transform.localPosition = Vector3.MoveTowards(bodyPoints[i - 1].transform.localPosition, new Vector3(x, y, zPosition), step);
-                //bodyPoints[i - 1].transform.localPosition = Vector3.Lerp(bodyPoints[i - 1].transform.localPosition, new Vector3(x, y, zPosition - 0.1f), step);
-
-            }
+            bodyPointTransforms[i - 1].localPosition = Vector3.Lerp(bodyPointTransforms[i - 1].localPosition, targetPosition, smoothingFactor);
         }
     }
 }
+

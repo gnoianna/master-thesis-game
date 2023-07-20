@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class CollisionDetector : MonoBehaviour
 {
-
-    private void OnTriggerEnter(Collider body)
+    private void OnTriggerEnter(Collider obstacle)
     {
-        if (body.gameObject.tag == gameObject.tag)
+        if (obstacle.gameObject.tag == gameObject.tag)
         {
-            MainGameManager.Instance.IncreaseScore(1);
-            MusicManager.Instance.PlayCollisionSound();
+            GameModeManager.Instance.IncreaseScore();
+            AudioManager.Instance.PlayCollisionSound();
             Destroy(gameObject);
         }
     }

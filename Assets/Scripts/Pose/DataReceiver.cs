@@ -8,9 +8,9 @@ using System.Threading;
 public class DataReceiver : MonoBehaviour
 {
 
-    Thread receiveThread;
-    UdpClient client; 
-    public int port = 5052;
+    private Thread receiveThread;
+    private UdpClient client; 
+    private int port = 5052;
     public string Data;
 
     public static DataReceiver Instance;
@@ -30,42 +30,55 @@ public class DataReceiver : MonoBehaviour
 
     public void Start()
     {
+        StartReceivingData();
+    }
 
-        receiveThread = new Thread(
-            new ThreadStart(ReceiveData));
+    private void StartReceivingData()
+    {
+        receiveThread = new Thread(new ThreadStart(ReceiveData));
         receiveThread.IsBackground = true;
         receiveThread.Start();
+    }
+
+    public void StopReceiving()
+    {
+        if (client != null)
+        {
+            client.Close();
+        }
+
+        if (receiveThread != null)
+        {
+            receiveThread.Abort();
+        }
     }
 
     private void ReceiveData()
     {
 
         client = new UdpClient(port);
-        while (true)
+        IPEndPoint anyIP = new IPEndPoint(IPAddress.Any, 0);
+        while (receiveThread.IsAlive)
         {
             try
             {
-                IPEndPoint anyIP = new IPEndPoint(IPAddress.Any, 0);
                 byte[] dataByte = client.Receive(ref anyIP);
                 Data = Encoding.UTF8.GetString(dataByte);
             }
             catch (Exception err)
             {
-                print(err.ToString());
+                Debug.Log(err.ToString());
             }
         }
     }
 
     public bool DataIsEmpty()
     {
-        return Data == "[]";
-      
+        return Data.Length < 3;
     }
 
     private void OnApplicationQuit()
     {
-        client.Close();
-        receiveThread.Abort();
+        StopReceiving();
     }
-
 }

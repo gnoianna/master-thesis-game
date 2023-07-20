@@ -4,25 +4,52 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager instance;
+    public static AudioManager Instance;
 
-    public AudioClip collisionSound;
+    public float MusicVolume;
+    public float SoundVolume;
+    public AudioSource Music;
+    public AudioSource Sound;
 
-    private void Awake()
+    void Start()
     {
-        if (instance == null)
+        MusicVolume = 0.5f;
+        SoundVolume = 0.5f;
+    }
+
+    void Awake()
+    {
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-        else if (instance != this)
+        else
         {
             Destroy(gameObject);
         }
     }
 
+    public void ChangeMusicVolume(float volume)
+    {
+        MusicVolume = volume;
+        Music.volume = MusicVolume;
+    }
+
+    public void ChangeSoundVolume(float volume)
+    {
+        SoundVolume = volume;
+        Sound.volume = SoundVolume;
+    }
+
+    public void UpdateMusicAudioClip(AudioClip newMusic)
+    {
+        Music.clip = newMusic;
+        Music.Play();
+    }
+
     public void PlayCollisionSound()
     {
-        AudioSource.PlayClipAtPoint(collisionSound, Vector3.zero);
+        Sound.Play();
     }
 }
-

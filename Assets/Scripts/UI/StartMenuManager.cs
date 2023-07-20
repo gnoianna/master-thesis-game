@@ -44,16 +44,16 @@ public class StartMenuManager : MonoBehaviour
 
     public void EasyMode()
     {
-        MainGameManager.Instance.LoadEasyMode();
+        SceneManager.LoadScene("MainScene");
     }
 
     public void MediumMode()
     {
-        MainGameManager.Instance.LoadMediumMode();
+        SceneManager.LoadScene("MainScene");
     }
 
     public void HardMode()
     {
-        MainGameManager.Instance.LoadHardMode();
+        SceneManager.LoadScene("MainScene");
     }
 }

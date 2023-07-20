@@ -11,23 +11,19 @@ public class StatsController : MonoBehaviour
 
     void Update()
     {
-        if (scoreValue)
-        {
-            scoreValue.text = MainGameManager.Instance.Score.ToString();
-        }
         if (timeValue)
         {
-            float gameTime = MainGameManager.Instance.GameTime;
+            float gameTime = GameModeManager.Instance.gameTime;
             float minutes = Mathf.FloorToInt(gameTime / 60);
             float seconds = Mathf.FloorToInt(gameTime % 60);
 
             timeValue.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
-        if (bestScoreValue)
+        if (scoreValue && bestScoreValue)
         {
-            bestScoreValue.text = "Your score: " + MainGameManager.Instance.Score.ToString();
+            string score = GameModeManager.Instance.score.ToString();
+            scoreValue.text = score;
+            bestScoreValue.text = "Your score: " + score;
         }
-
-
     }
 }

@@ -11,16 +11,16 @@ public class SliderController : MonoBehaviour
     void Start()
     {
         if (gameObject.CompareTag("Music"))
-            slider.value = MusicManager.Instance.MusicVolume;
+            slider.value = AudioManager.Instance.MusicVolume;
         else if (gameObject.CompareTag("Sound"))
-            slider.value = MusicManager.Instance.SoundVolume;
+            slider.value = AudioManager.Instance.SoundVolume;
     }
 
     public void ChangeAudioSourceVolume()
     {
         if (gameObject.CompareTag("Music"))
-            MusicManager.Instance.ChangeMusicVolume(slider.value);
+            AudioManager.Instance.ChangeMusicVolume(slider.value);
         else if (gameObject.CompareTag("Sound"))
-            MusicManager.Instance.ChangeSoundVolume(slider.value);
+            AudioManager.Instance.ChangeSoundVolume(slider.value);
     }
 }

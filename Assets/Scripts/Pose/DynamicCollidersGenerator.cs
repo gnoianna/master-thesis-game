@@ -17,14 +17,11 @@ public class DynamicCollidersGenerator : MonoBehaviour
         UpdateBoxCollider(box2, point2.position, point3.position);
     }
 
-    private void UpdateBoxCollider(BoxCollider box, Vector3 startPoint, Vector3 endPoint)
+    private void UpdateBoxCollider(BoxCollider box, Vector3 start, Vector3 end)
     {
-        Vector3 center = (startPoint + endPoint) / 2;
-        Vector3 size = endPoint - startPoint;
-
-        box.transform.position = center;
+        Vector3 size = end - start;
+        box.transform.position = (start + end) / 2;
         box.transform.rotation = Quaternion.FromToRotation(Vector3.right, size);
-
         box.size = new Vector3(size.magnitude, box.size.y, box.size.z);
     }
 }
