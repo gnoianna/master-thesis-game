@@ -394,10 +394,10 @@ MonoBehaviour:
     m_Reference: {fileID: -5933798352084972220, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
   gameModeAudioClip: {fileID: 8300000, guid: 87890a66193394e3cb7d6284cc6b4344, type: 3}
-  obstacleSpeed: 2
+  obstacleSpeed: 3
   gameTime: 100
   score: 0
-  currentSceneName: MainScene
+  currentSceneName: MediumMode
 --- !u!1 &116289929
 GameObject:
   m_ObjectHideFlags: 0
@@ -4107,7 +4107,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 123
+  m_text: 10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4597,11 +4597,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1edddf79e815f454eb851f265e5eff74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftObstacle: {fileID: 4287165101643093560, guid: f7f33f7220b32654fb00bc8c21215028,
+  obstacle1: {fileID: 4287165101643093560, guid: f7f33f7220b32654fb00bc8c21215028,
     type: 3}
-  rightObstacle: {fileID: 5401585135655534238, guid: 9e0c34f53e6157240a1ae6b0bee16780,
+  obstacle2: {fileID: 5401585135655534238, guid: 9e0c34f53e6157240a1ae6b0bee16780,
     type: 3}
-  leftPositions:
+  positions1:
   - {fileID: 4224470194629636753}
   - {fileID: 4224470195900602781}
   - {fileID: 4224470195557032668}
@@ -4609,7 +4609,7 @@ MonoBehaviour:
   - {fileID: 4224470195649705557}
   - {fileID: 4224470194760992982}
   - {fileID: 4224470194654372705}
-  rightPositions:
+  positions2:
   - {fileID: 4224470196236235852}
   - {fileID: 4224470196222010310}
   - {fileID: 4224470194700054859}
@@ -4617,7 +4617,7 @@ MonoBehaviour:
   - {fileID: 4224470195942023484}
   - {fileID: 4224470194919927050}
   - {fileID: 4224470195072523247}
-  step: 0.3
+  step: 0.5
   timer: 0
 --- !u!1001 &2604460162794748407
 PrefabInstance:
@@ -4695,6 +4695,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2604460164366697996, guid: ec581c946b535be428a670cbfca431fe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100983335338518396, guid: ec581c946b535be428a670cbfca431fe,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100983335625322387, guid: ec581c946b535be428a670cbfca431fe,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100983336397855617, guid: ec581c946b535be428a670cbfca431fe,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100983336514061191, guid: ec581c946b535be428a670cbfca431fe,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100983336809302199, guid: ec581c946b535be428a670cbfca431fe,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100983336973535662, guid: ec581c946b535be428a670cbfca431fe,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5279568710571598895, guid: ec581c946b535be428a670cbfca431fe,
         type: 3}

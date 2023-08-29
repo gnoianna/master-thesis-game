@@ -7,15 +7,15 @@ public class PoseTracker : MonoBehaviour
 {
     public GameObject[] bodyPoints;
     public Transform head;
-    private Transform[] bodyPointTransforms;
+    private Transform[] pointTransforms;
     private float smoothingFactor = 0.5f;
 
     void Start()
     {
-        bodyPointTransforms = new Transform[bodyPoints.Length];
+        pointTransforms = new Transform[bodyPoints.Length];
         for (int i = 0; i < bodyPoints.Length; i++)
         {
-            bodyPointTransforms[i] = bodyPoints[i].transform;
+            pointTransforms[i] = bodyPoints[i].transform;
         }
     }
 
@@ -23,6 +23,11 @@ public class PoseTracker : MonoBehaviour
     {
         string data = DataReceiver.Instance.Data;
         ParsePointsData(data);
+    }
+
+    float ParseToFloat(string point)
+    {
+        return float.Parse(point, CultureInfo.InvariantCulture);
     }
 
     void ParsePointsData(string data)
@@ -33,22 +38,20 @@ public class PoseTracker : MonoBehaviour
         if (points.Length < 2)
             return;
 
-        float leftEyeYPosition = float.Parse(points[1], CultureInfo.InvariantCulture);
-
-        float yOffset = Mathf.Abs(head.position.y - leftEyeYPosition);
+        float leftEyeYPosition = ParseToFloat(points[1]);
         float xOffset = head.position.x;
+        float yOffset = Mathf.Abs(head.position.y - leftEyeYPosition);
 
         for (int i = 1; i < (points.Length / 2); i++)
         {
-            float x = float.Parse(points[i * 2], CultureInfo.InvariantCulture) + xOffset;
-            float y = float.Parse(points[i * 2 + 1], CultureInfo.InvariantCulture) + yOffset;
+            float x = ParseToFloat(points[i * 2]) + xOffset; //Tu te¿ mo¿e nie dzia³aæ
+            float y = ParseToFloat(points[i * 2 + 1]) + yOffset;
             float z = head.position.z;
 
+            Vector3 currentPosition = pointTransforms[i - 1].localPosition; //Tu mo¿e siê zjebaæ
             Vector3 targetPosition = new Vector3(x, y, z);
-            float distance = Vector3.Distance(bodyPointTransforms[i - 1].localPosition, targetPosition);
 
-
-            bodyPointTransforms[i - 1].localPosition = Vector3.Lerp(bodyPointTransforms[i - 1].localPosition, targetPosition, smoothingFactor);
+            pointTransforms[i - 1].localPosition = Vector3.Lerp(currentPosition, targetPosition, smoothingFactor);
         }
     }
 }
